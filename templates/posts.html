@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+<!-- extending the base html -->
+
+<!-- title placeholder in index.html -->
+{% block head%}
+<title>Posts</title>
+{%endblock%}
+
+<!-- body placeholder in index.html -->
+{% block body%}
+<h1>All Posts</h1>
+
+
+    <!-- loop through posts in app-->
+    {% for post in posts %}
+
+        <h2>{{ post.title}}</h2>
+
+        {%if post.author %}
+            <h3>By: {{ post.author }}</h3>
+        {% else %}
+            <h3>By: N/A</h3>
+        {% endif %}
+
+
+        <p>{{ post.content}}</p>
+
+    {% endfor %}
+
+{%endblock%}
